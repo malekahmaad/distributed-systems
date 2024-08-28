@@ -1,0 +1,95 @@
+.page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.name{
+    flex: 1;
+    order: 1;
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    color: rgb(29, 94, 148);
+    font-size: large;
+    text-align: center;
+    padding: 10px;
+}
+
+.searchImage{
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+    order: 2;
+    margin-top: 2%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.searchBar{
+    flex: 1;
+    order: 1;
+}
+
+#searching{
+    width: 120%;
+}
+
+.images{
+    flex: 9;
+    order: 2;
+    text-align: center;
+    margin-top: 1%;
+    background-color: black;
+    color: white;
+}
+
+#moreButton{
+    flex: 1;
+    order: 3;
+    margin-top: 1%;
+}
+
+.unsplashImage{
+    margin: 2px;
+}
+
+.imageInfos{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgb(171, 169, 169);
+    z-index: 9999;
+    align-items: flex-start;
+}
+
+.smallImage{
+    width: 40%;
+    height: 40%;
+}
+
+.alt_description{
+    margin-top: 1%;
+}
+
+.discriptionHead{
+    font-size: large;
+    margin-top: 2%;
+}
+
+.likes{
+    margin-top: 2%;
+}
+
+#close_button{
+    margin-top: 2%;
+    margin-left: 87%;
+}

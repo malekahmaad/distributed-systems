@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "46435114-cb97-4218-83e6-64b347d3c4cd",
+		"name": "ex4 Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4150433"
+	},
+	"item": [
+		{
+			"name": "new member",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+							"});\r",
+							"pm.test(\"Extract ID from response\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"memberId1\", jsonData._id);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Sharon Akiva\",\r\n        \"email\": \"sharon@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/{{memberresource}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{{memberresource}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new member Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+							"});\r",
+							"pm.test(\"Extract ID from response\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"memberId2\", jsonData._id);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"name\": \"Dan A\",\r\n            \"email\": \"danaa@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/{{memberresource}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{{memberresource}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+							"});\r",
+							"pm.test(\"Extract ID from response\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"projectId\", jsonData._id);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"dist project hello world\",\r\n    \"summary\": \"dist project hello world dist project hello world  summary..... \",\r\n    \"manager\": {\r\n        \"_id\": \"{{memberId1}}\"\r\n    },\r\n    \"team\": [\r\n        {\r\n           \"_id\":\"{{memberId2}}\",\r\n           \"role\": \"QA\"\r\n        }\r\n\r\n    ],\r\n    \"start_date\": \"1719259024\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/{{projectresource}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{{projectresource}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add image to project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+							"});\r",
+							"pm.test(\"Extract ID from response\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"imageId1\", jsonData._id);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"thumb\": \"images.unsplash.com/photo-1599340695274-f8a2f344174d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NDcxNTZ8MHwxfHNlYXJjaHwxfHxpc3JhZWx8ZW58MHx8fHwxNzA4ODczMDkzfDA&ixlib=rb-4.0.3&q=80&w=200\",\r\n  \"description\":\"blue and white flag on pole\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/{{projectresource}}/{{projectId}}/{{imageresourc}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{{projectresource}}",
+						"{{projectId}}",
+						"{{imageresourc}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del image to project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DEL request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"thumb\": \"images.unsplash.com/photo-1599340695274-f8a2f344174d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NDcxNTZ8MHwxfHNlYXJjaHwxfHxpc3JhZWx8ZW58MHx8fHwxNzA4ODczMDkzfDA&ixlib=rb-4.0.3&q=80&w=200\",\r\n  \"description\":\"blue and white flag on pole\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/{{projectresource}}/{{projectId}}/{{imageresourc}}/{{imageId1}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{{projectresource}}",
+						"{{projectId}}",
+						"{{imageresourc}}",
+						"{{imageId1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del image to project try again",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DEL request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([404]);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"thumb\": \"images.unsplash.com/photo-1599340695274-f8a2f344174d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NDcxNTZ8MHwxfHNlYXJjaHwxfHxpc3JhZWx8ZW58MHx8fHwxNzA4ODczMDkzfDA&ixlib=rb-4.0.3&q=80&w=200\",\r\n  \"description\":\"blue and white flag on pole\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/{{projectresource}}/{{projectId}}/{{imageresourc}}/{{imageId1}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{{projectresource}}",
+						"{{projectId}}",
+						"{{imageresourc}}",
+						"{{imageId1}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost:3001"
+		},
+		{
+			"key": "memberresource",
+			"value": "members"
+		},
+		{
+			"key": "projectresource",
+			"value": "projects"
+		},
+		{
+			"key": "imageresourc",
+			"value": "images"
+		}
+	]
+}

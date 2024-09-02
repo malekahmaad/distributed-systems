@@ -1,0 +1,33 @@
+ids: 324921345, 212523849
+
+1- file system is the thing that the operating system uses to control everything about the files in the device so the user can do a lot of operations on the files such as read, write, create ,delete and modify such that:
+
+a- create and delete files: the operating system provide some functions to create and delete files and folders 
+
+b- read and write: the operating system provide some functions to read from and write to files that the user have access to
+
+c- saving the files: after creating them the operating system sees the path of the file we want to save and it saves it there so we can see it where we want
+
+d- access control: not everyone has the same accesses to any file it should be arranged and gives access to the people we want and will use the file for a good thing and it does this using so access matrix for the users and the files
+
+e-  files navigation: it provides some good tools to navigate files and find them easily
+
+
+2- /users/galaxy/venus/haizar
+first it starts with the root then it looks for the users in the root's i-node when it sees the '/' then it looks for the galaxy folder in the users' i-node then it looks for the venus in the galaxy's i-node then and finally it looks for the haizar in the venus' i-node and it finds the file haizar and reads its data and returns it
+the lookup is done by navigating every folder i-node and sees if we have the specific folder or file we want in it or not
+
+
+3- the mount means that we attach the path we have or the file system we have to another file system with the first folder name as the directory that exists on the main file system we mounted on
+
+
+4- /users/galaxy/venus/haizar
+first it starts with the root then it looks for the users in the root's i-node when it sees the '/' then it looks for the galaxy folder in the users' i-node then the operating system recognizes that the venus is mounted so it sends a request to the NFS server to read the venus/haizar and sees if the haizar is in the venus folder and then returns its data and then the NFS client gives these returned data to the user that requested it 
+
+
+5- the word stateless in NFS means that the requests does not rely on other requests and on the data sent in its response and in every request the client should send a full request that contains every info you need to do the action on a specific file
+for example in the read action you send the read request with the file path and the file handle with the offset in the file from which to start reading and the number of bytes the client wants to read
+
+
+6- when the server fails it doesn't need to recover the previous requests because the requests are all independent and the clients can send their requests after the server recovers without waiting for anything when it recovers
+when the client fails it doesn't effect the server with the requests because all of them are independent and the client can resume his operations and sending requests without worrying on the previous request he sends when he fails that doesn't reach the server 
